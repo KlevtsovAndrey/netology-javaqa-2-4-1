@@ -10,11 +10,7 @@ public class StatsService {
     }
 
     public int calculateAverageSales(int[] yearSales) {
-        int summ = 0;
-        for (int month: yearSales) {
-            summ += month;
-        }
-        return summ / yearSales.length;
+       return calculateTotalSum(yearSales) / yearSales.length;
     }
 
     public int calculateMaxMonthBySales(int[] yearSales) {
@@ -52,14 +48,9 @@ public class StatsService {
     }
 
     public int calculateMonthLowerThanAverage(int[] yearSales) {
-        int summ = 0;
         int count = 0;
         for (int month: yearSales) {
-            summ += month;
-        }
-        int avgSales = summ / yearSales.length;
-        for (int month: yearSales) {
-            if (month > avgSales) {
+            if (month > calculateAverageSales(yearSales)) {
                 count += 1;
             }
         }
@@ -67,14 +58,9 @@ public class StatsService {
     }
 
     public int CalculateMonthHigherThanAverage(int[] yearSales) {
-        int summ = 0;
         int count = 0;
         for (int month: yearSales) {
-            summ += month;
-        }
-        int avgSales = summ / yearSales.length;
-        for (int month: yearSales) {
-            if (month < avgSales) {
+            if (month > calculateAverageSales(yearSales)) {
                 count += 1;
             }
         }
