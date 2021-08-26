@@ -49,8 +49,9 @@ public class StatsService {
 
     public int calculateMonthLowerThanAverage(int[] yearSales) {
         int count = 0;
+        int avgSales = calculateAverageSales(yearSales);
         for (int month: yearSales) {
-            if (month > calculateAverageSales(yearSales)) {
+            if (month < avgSales) {
                 count += 1;
             }
         }
@@ -59,8 +60,9 @@ public class StatsService {
 
     public int CalculateMonthHigherThanAverage(int[] yearSales) {
         int count = 0;
+        int avgSales = calculateAverageSales(yearSales);
         for (int month: yearSales) {
-            if (month > calculateAverageSales(yearSales)) {
+            if (month > avgSales) {
                 count += 1;
             }
         }
